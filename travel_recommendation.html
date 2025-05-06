@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>travel-recommendation</title>
+</head>
+<body class="top-0 left-0 w-screen h-full p-2">
+    <img src="/background.jpg" alt="Travel Image" class="fixed top-0 left-0 w-full h-screen object-cover">
+    <div class="overlay fixed top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-black opacity-75"></div>
+    <div class="nav w-full h-20 fixed top-0 left-0 right-0 bg-gray-500 py-4 px-8 flex justify-between items-center z-30">
+        <div class="logo-section inline-flex items-center space-x-4">
+            <img src="/logo.svg" alt="Logo" class="h-16 w-16 ">
+            <h1 class="text-xl font-bold">Travel Recommendation</h1>
+        </div>
+        <div class="link-section inline-flex space-x-8">
+            <a onclick="handlePageChange('home')" class="text-black font-semibold hover:underline">Home</a>
+            <a onclick="handlePageChange('about')" class="text-black font-semibold hover:underline">About</a>
+            <a onclick="handlePageChange('contact')" class="text-black font-semibold hover:underline">Contact</a>
+        </div>
+        <div id="search-section" class="space-x-2 w-2xl">
+            <input id="search" type="text" placeholder="Enter a destination or keyword" class="px-4 py-2 w-64 border border-gray-300 drop-shadow-sm rounded-full">
+            <button id="search-button" class="bg-teal-500 text-white p-2 w-16 rounded" onclick="handleSearch()">Search</button>
+            <button class="bg-teal-500 text-white p-2 w-16 rounded">Clear</button>
+        </div>
+    </div>
+
+    <div class="content mt-16 w-full h-full relative z-20 flex items-center justify-center px-4 py-12">
+        <div id="home-section" class="main-section bg-black bg-opacity-50 p-8 rounded-lg max-w-3xl w-full text-center">
+            <div class="text mb-8">
+                <h1 id="head-text" class="font-bold text-white text-4xl sm:text-5xl md:text-6xl mb-4 leading-tight break-words">
+                    Explore Your Dream Destination
+                </h1>
+                <p id="sub-text" class="text-white text-lg sm:text-xl leading-relaxed break-words">
+                    Discover breathtaking places around the world with our personalized travel recommendations. Start your journey today!
+                </p>
+            </div>
+            <div id="results-container" class="ml-2 bg-black bg-opacity-50 p-8 rounded-lg max-w-3xl w-full hidden">
+                <h2 class="font-bold text-white text-3xl sm:text-4xl mb-6 text-center">Recommended Destinations</h2>
+                <div id="results" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                </div>
+            </div>
+        </div>
+
+        <div id="contact-section" class="main-section ml-2 bg-black bg-opacity-50 p-8 rounded-lg max-w-3xl w-full hidden">
+            <h2 class="font-bold text-white text-3xl sm:text-4xl mb-6 text-center">Contact Us</h2>
+            <p class="text-white text-md sm:text-lg mb-6 text-center">
+                Have questions or need assistance? We'd love to hear from you!
+            </p>
+            
+            <form class="space-y-4">
+                <div class="flex flex-col">
+                    <label for="name" class="text-white text-left mb-1">Name</label>
+                    <input type="text" id="name" name="name" required 
+                        class="px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="email" class="text-white text-left mb-1">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="message" class="text-white text-left mb-1">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                </div>
+                
+                <div class="text-center mt-6">
+                    <button type="submit" class="bg-teal-500 text-white px-6 py-3 rounded hover:bg-teal-600 transition duration-200">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/travel_recommendation.js"></script>
+</html>
