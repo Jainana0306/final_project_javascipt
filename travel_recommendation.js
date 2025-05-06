@@ -9,7 +9,7 @@ const handleSearch = async () => {
     resultsElement.innerHTML = '';
     
     try {
-        const response = await fetch('/travel_recommendation_api.json');
+        const response = await fetch('travel_recommendation_api.json');
         const data = await response.json();
         
         let results = [];
